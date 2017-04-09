@@ -12,7 +12,7 @@ import cn.cncic.service.UserService;
 @RestController
 public class GreetingController {
 	@Autowired
-	private BookService bookService;
+	private  BookService bookService;
 	
 	@Autowired
 	private UserService userService;
