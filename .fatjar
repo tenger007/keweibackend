@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Jun 28 10:17:52 CST 2017
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=false
+onejar.checkbox=true
+jarname=C\:\\Users\\Thinkpad\\Desktop\\kewei.backend-0.0.1-SNAPSHOT.jar
+manifest.mergeall=true
+manifest.mainclass=cn.cncic.Application
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=

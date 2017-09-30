@@ -1,27 +1,10 @@
 package cn.cncic.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.Size;
-
-@Entity
-public class User {
-	@Id
-	private long id;
-	
-	@Size(max=32)
-	private String name;
-	
-	@Size(max=512)
-	private String summary;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+public class User {  
+      
+    private String name;  
+      
+    private String pass;
 
 	public String getName() {
 		return name;
@@ -31,13 +14,13 @@ public class User {
 		this.name = name;
 	}
 
-	public String getSummary() {
-		return summary;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-	
-	
-}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}  
+  
+   
+}  
