@@ -23,41 +23,38 @@ public class MenuDto {
 	
 	private long fid;
 	
-	private int level;
-	
-	private String code;
-
-	private String url;
-	
-	private int isend;
-	
-	private int hasson;
-
-	private List<Menu> children = new ArrayList<Menu>();
+	private List<MenuDto> children = new ArrayList<MenuDto>();
 	
 	
-	public MenuDto(long id, String name, long jsdid, long fid, int level, String code, String url, int isend,
-			int hasson, List<Menu> children) {
+	public MenuDto(long id, String name, long jsdid, long fid, List<MenuDto> children) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.jsdid = jsdid;
 		this.fid = fid;
-		this.level = level;
-		this.code = code;
-		this.url = url;
-		this.isend = isend;
-		this.hasson = hasson;
 		this.children = children;
 	}
+  
+	
+	
 
-	public List<Menu> getChildren() {
+	public MenuDto() {
+		super();
+	}
+
+
+
+
+	public List<MenuDto> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<Menu> children) {
+
+
+	public void setChildren(List<MenuDto> children) {
 		this.children = children;
 	}
+
 
 
 	public long getId() {
@@ -92,46 +89,5 @@ public class MenuDto {
 		this.fid = fid;
 	}
 
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public int getIsend() {
-		return isend;
-	}
-
-	public void setIsend(int isend) {
-		this.isend = isend;
-	}
-
-	public int getHasson() {
-		return hasson;
-	}
-
-	public void setHasson(int hasson) {
-		this.hasson = hasson;
-	}
-	
-	
 	
 }

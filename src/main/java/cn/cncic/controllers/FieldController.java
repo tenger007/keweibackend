@@ -22,7 +22,6 @@ public class FieldController {
 	//查询单个属性
 	@RequestMapping("/field/{id}")
 	public Field getField(@PathVariable("id") Long fieldId){
-		fieldId=(long) 1;
 		return this.fieldService.byId(fieldId);
 	}
 	

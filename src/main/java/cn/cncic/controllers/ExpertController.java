@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
+
 import cn.cncic.models.Expert;
 import cn.cncic.service.ExpertService;
 import scala.collection.immutable.Page;
@@ -19,7 +21,7 @@ public class ExpertController {
 	@Autowired
 	private  ExpertService expertService;
 	
-	//根据ID获取技术点相关机构信息
+	//根据ID获取专家相关信息
 	 @RequestMapping("/expert/{id}")
 	 public Expert getExpert(@PathVariable("id") Long expertId){
 		 return this.expertService.byId(expertId);
@@ -38,9 +40,13 @@ public class ExpertController {
 	 }
 
 	 //根据技术点ID获取相关机构的信息
-	 @RequestMapping("/expertsbyjishudianid/{jishudianId}")
+	/* @RequestMapping("/expertsbyjishudianid/{jishudianId}")
 	 public Iterable<Expert> getExpertsByJishudianIds(@PathVariable("jishudianId") long jishduianId){
 		return this.expertService.findByJishudianId(jishduianId);
+	 }*/
+	//通过领域id查询专家文章信息
+	 @RequestMapping("/fieldExperts/{id}")
+		List<Expert> findByFieldid(@PathVariable("id")long id){
+		 return expertService.findByFieldid(id);
 	 }
-	 
 }

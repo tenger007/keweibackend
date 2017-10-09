@@ -7,6 +7,8 @@ import cn.cncic.models.Field;
 
 
 interface FieldRepository extends PagingAndSortingRepository<Field, Long>{
+
+	Field findById(long id);
 	
 
 }

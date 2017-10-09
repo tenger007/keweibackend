@@ -11,13 +11,20 @@ import cn.cncic.models.Menu;
 
 interface MenuRepository extends PagingAndSortingRepository<Menu, Long>{
 	/*
-	 * 通过jsdid查询对应的父菜单，父菜单内包含着子菜单
+	 * 通过jsdid查询菜单
 	 */
+	  @Query("select a from Menu a where jsdid=?1  order by id")
 	List<Menu> findByJsdid(long jsdid);
+	
+	/*
+	 * 通过技术点名称和菜单名称查询菜单
+	 */
+   List<Menu>	findByJsdidAndName(long jsdid,String name);
 	
 	/*
 	 * 通过父菜单id查询菜单
 	 */
+   @Query("select a from Menu a where fid=?1  order by id")
 	List<Menu> findByFid(long fid);
 	
 	

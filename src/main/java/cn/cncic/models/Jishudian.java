@@ -8,9 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 //import java.security.Timestamp;//会生成tinyblob类型数据
 //import java.util.Date;//一般定义时间戳类型数据
@@ -22,27 +24,23 @@ public class Jishudian{
 	@Id
 	private long id;
 	
-	@NotNull
-	@Size(max=255)
-	private String name;
+	private long fid;
 	
+	private String name;
+	private String keyword;
 	//技术点跟踪图片
 	private String img;
 		
-		
-	@NotNull
-	private int score;
+	private double score;
 	
-	private int scorejigou;
-	private int scorezazhi;
-	private int scoredb;
-	private int scoreexpert;
-	
-	@NotNull
-	private Timestamp updatetime;
+	private double scorejigou;
+	private double scorezazhi;
+	private double scoredb;
+	private double scoreexpert;
+	private int isshow;
+	private Date updatetime;
 	
 	
-	@NotNull
 	private long fieldid;
 
 	//技术点相关文章（文章包含报告和文献，报告和文献分别来源于机构和杂志）
@@ -53,10 +51,10 @@ public class Jishudian{
     
 	private Set<Article> articles = new HashSet<Article>();*/
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)//级联保存、更新、删除、刷新;延迟加载
+	/*@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)//级联保存、更新、删除、刷新;延迟加载
 	 @JoinColumn(name="jishudian_id")//在book表增加一个外键列来实现一对多的单向关联
-//	 private Set<Book> books = new HashSet<Book>();
-	private Set<JishudianArticle> jishudianArticle = new HashSet<JishudianArticle>(); 
+*///	 private Set<Book> books = new HashSet<Book>();
+	//private Set<JishudianArticle> jishudianArticle = new HashSet<JishudianArticle>(); 
 	
 
 	//技术点国际分布
@@ -83,6 +81,52 @@ public class Jishudian{
 	//临时添加填充技术点打分页面空白内容
 	private String definition;
 	
+	private int ismainfield;
+	
+	private String enname;
+	
+	
+	
+	public int getIsshow() {
+		return isshow;
+	}
+
+	public void setIsshow(int isshow) {
+		this.isshow = isshow;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public long getFid() {
+		return fid;
+	}
+
+	public void setFid(long fid) {
+		this.fid = fid;
+	}
+
+	public String getEnname() {
+		return enname;
+	}
+
+	public void setEnname(String enname) {
+		this.enname = enname;
+	}
+
+	public int getIsmainfield() {
+		return ismainfield;
+	}
+
+	public void setIsmainfield(int ismainfield) {
+		this.ismainfield = ismainfield;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -109,51 +153,52 @@ public class Jishudian{
 		this.img = img;
 	}
 
-	public int getScore() {
+	
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 
-	public int getScorejigou() {
+	public double getScorejigou() {
 		return scorejigou;
 	}
 
-	public void setScorejigou(int scorejigou) {
+	public void setScorejigou(double scorejigou) {
 		this.scorejigou = scorejigou;
 	}
 
-	public int getScorezazhi() {
+	public double getScorezazhi() {
 		return scorezazhi;
 	}
 
-	public void setScorezazhi(int scorezazhi) {
+	public void setScorezazhi(double scorezazhi) {
 		this.scorezazhi = scorezazhi;
 	}
 
-	public int getScoredb() {
+	public double getScoredb() {
 		return scoredb;
 	}
 
-	public void setScoredb(int scoredb) {
+	public void setScoredb(double scoredb) {
 		this.scoredb = scoredb;
 	}
 
-	public int getScoreexpert() {
+	public double getScoreexpert() {
 		return scoreexpert;
 	}
 
-	public void setScoreexpert(int scoreexpert) {
+	public void setScoreexpert(double scoreexpert) {
 		this.scoreexpert = scoreexpert;
 	}
 
-	public Timestamp getUpdatetime() {
+	public Date getUpdatetime() {
 		return updatetime;
 	}
 
-	public void setUpdatetime(Timestamp updatetime) {
+	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
 
@@ -167,13 +212,13 @@ public class Jishudian{
 
 	
 
-	public Set<JishudianArticle> getJishudianArticle() {
+	/*public Set<JishudianArticle> getJishudianArticle() {
 		return jishudianArticle;
 	}
 
 	public void setJishudianArticle(Set<JishudianArticle> jishudianArticle) {
 		this.jishudianArticle = jishudianArticle;
-	}
+	}*/
 
 	public String getInternational() {
 		return international;

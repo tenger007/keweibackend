@@ -35,5 +35,9 @@ public class ContentService {
 		public Content byJsdidAndMenuname(long jsdid,String menuname){
 			return this.contentRepository.findByJsdidAndMenuname(jsdid, menuname);
 		}
+		//通过技术点id确定相关内容显示
+		public Iterable<Content> byJsdid(long jsdid){
+			return contentRepository.findByJsdid(jsdid);
+		}
 
 }

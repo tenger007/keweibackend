@@ -33,10 +33,20 @@ public class Field {
 	@Size(max=255)
 	private String icon1;
 	
+	private String expertcontent;
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)//级联保存、更新、删除、刷新;延迟加载
 	 @JoinColumn(name="field_id")//在book表增加一个外键列来实现一对多的单向关联
 	private Set<FieldSource> FieldSource = new HashSet<FieldSource>(); 
 	
+	
+	public String getExpertcontent() {
+		return expertcontent;
+	}
+
+	public void setExpertcontent(String expertcontent) {
+		this.expertcontent = expertcontent;
+	}
+
 	public long getId() {
 		return id;
 	}

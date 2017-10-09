@@ -22,6 +22,8 @@ interface ContentRepository extends PagingAndSortingRepository<Content, Long>{
      * 通过技术点ID和菜单名称来查找内容
      */
 	Content findByJsdidAndMenuname(long jsdid, String menuname);
+
+	Iterable<Content> findByJsdid(long jsdid);
 	
 	
 }

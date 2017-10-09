@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.cncic.models.Expert;
-import cn.cncic.models.Institution;
 
 
 @Service
@@ -23,13 +22,18 @@ public class ExpertService {
 		return this.expertRepository.findAll();
 	}
 	//通过技术点ID获取相关专家信息
-	public List<Expert> findByJishudianId(long jishudianid){
+	/*public List<Expert> findByJishudianId(long jishudianid){
 		return this.expertRepository.findByJishudianid(jishudianid);
-	}
+	}*/
 	
 	//通过技术点ID获取相关专家IDs
-	public List<Long> findExpertIdsByJishudianId(long jishudianid){
+	/*public List<Long> findExpertIdsByJishudianId(long jishudianid){
 		return this.expertRepository.findExpertIdsByjsdid(jishudianid);
+	}*/
+	
+	//通过领域id查询专家文章信息
+	public	List<Expert> findByFieldid(long id){
+		return expertRepository.findByFieldidOrderByPbdateDesc(id);
 	}
 	
 	//根据多个ID获取多个相关机构信息

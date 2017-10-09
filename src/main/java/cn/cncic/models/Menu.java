@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
+
+
 @Entity
 public class Menu {
 	@Id
@@ -24,16 +26,19 @@ public class Menu {
 	
 	private long fid;
 	
-	private int level;
+	@Transient
+	private List<Menu> childMenu=new ArrayList<Menu>();
 	
-	private String code;
+	
+	
+	public List<Menu> getChildMenu() {
+		return childMenu;
+	}
 
-	private String url;
-	
-	private int isend;
-	
-	private int hasson;
-	
+	public void setChildMenu(List<Menu> childMenu) {
+		this.childMenu = childMenu;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -66,46 +71,6 @@ public class Menu {
 		this.fid = fid;
 	}
 
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public int getIsend() {
-		return isend;
-	}
-
-	public void setIsend(int isend) {
-		this.isend = isend;
-	}
-
-	public int getHasson() {
-		return hasson;
-	}
-
-	public void setHasson(int hasson) {
-		this.hasson = hasson;
-	}
-	
 	
 	
 }

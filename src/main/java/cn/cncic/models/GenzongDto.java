@@ -8,15 +8,26 @@ public class GenzongDto {
 	private long id;
 	private String name;
 	private String img;
+	private String keyword;
 	
-	
-	public GenzongDto(long id, String name,String img) {
+	public GenzongDto(long id, String name,String img,String keyword) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.img=img;
-		
+		this.keyword=keyword;
 	}
+
+	
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 
 	public long getId() {
 		return id;

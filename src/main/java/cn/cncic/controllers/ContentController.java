@@ -42,6 +42,13 @@ public class ContentController {
 		  return content;
 	 }
 	 
+	 //通过技术点id确定相关内容显示
+	 @RequestMapping("/getcontentsByJsdid/{jsdid}")
+	 public Iterable<Content> getContentsByJsdid(@PathVariable("jsdid") long jsdid){
+		 Iterable<Content> contents=this.contentService.byJsdid(jsdid);
+		 return contents;
+	 }
+	 
 	//通过技术点id和菜单name确定内容显示
 		 @RequestMapping("/getcontents/{jsdid}/{menuname}")
 		 public Content getContentByJsdidAndMenuname(@PathVariable("jsdid") Long jsdid,@PathVariable("menuname") String menuname) throws UnsupportedEncodingException{

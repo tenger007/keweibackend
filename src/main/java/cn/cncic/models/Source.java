@@ -58,6 +58,14 @@ public class Source {
 	}
 
 	
+	public Set<FieldSource> getFieldSource() {
+		return FieldSource;
+	}
+
+	public void setFieldSource(Set<FieldSource> fieldSource) {
+		FieldSource = fieldSource;
+	}
+
 	public String getImg() {
 		return img;
 	}
@@ -101,14 +109,14 @@ public class Source {
 		this.sourcetype = sourcetype;
 	}
 
-	public Set<FieldSource> getFieldSource() {
+	/*public Set<FieldSource> getFieldSource() {
 		return FieldSource;
 	}
 
 	public void setFieldSource(Set<FieldSource> fieldSource) {
 		FieldSource = fieldSource;
 	}
-
+*/
 	
 	
 }

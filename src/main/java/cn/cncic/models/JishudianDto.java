@@ -2,7 +2,6 @@ package cn.cncic.models;
 
 
 
-import java.sql.Timestamp;
 //import java.security.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +9,19 @@ import java.util.List;
 public class JishudianDto {
 	
 	private long id;
+	private long fid;
+	private String img;
 	private String name;
-	private int score;
-	private int scorejigou;
-	private int scorezazhi;
-	private int scoredb;
-	private int scoreexpert;
+	private String keyword;
+	private String enname;
+	private double score;
+	private double scorejigou;
+	private double scorezazhi;
+	private double scoredb;
+	private double scoreexpert;
 	private String updatetime;
 	private long fieldid;
-	
+	private int isshow;
 	//文章包含报告和文献
 	private List<Long> articleIds = new ArrayList<>(); 
 	
@@ -43,26 +46,142 @@ public class JishudianDto {
 	//临时添加填充技术点打分页面空白内容
 	private String definition;
 		
-	public JishudianDto(long id, String name, int score,int scorejigou,int scorezazhi,int scoredb,int scoreexpert,String updatetime,long fieldid,List<Long> articleIds,List<Long> dbIds,List<Long> institutionIds,List<Long> expertIds,List<Long> jigouIds,List<Long> zazhiIds,String international,String civil,String definition) {
+	private List<Jishudian> jishudians;
+
+	public JishudianDto(long id,String img,Long fid, String name, String keyword,String enname, double score, double scorejigou, double scorezazhi, double scoredb,
+			double scoreexpert, String updatetime, long fieldid, List<Long> articleIds, List<Long> dbIds,
+			List<Long> institutionIds, List<Long> expertIds, List<Long> jigouIds, List<Long> zazhiIds,
+			String international, String civil, String definition,List<Jishudian> jishudians) {
 		super();
 		this.id = id;
+		this.fid=fid;
+		this.img=img;
 		this.name = name;
+		this.keyword=keyword;
+		this.enname = enname;
 		this.score = score;
 		this.scorejigou = scorejigou;
 		this.scorezazhi = scorezazhi;
 		this.scoredb = scoredb;
 		this.scoreexpert = scoreexpert;
 		this.updatetime = updatetime;
-		this.fieldid=fieldid;
+		this.fieldid = fieldid;
 		this.articleIds = articleIds;
 		this.dbIds = dbIds;
-		this.institutionIds=institutionIds;
-		this.expertIds=expertIds;
-		this.jigouIds=jigouIds;
-		this.zazhiIds=zazhiIds;
-		this.international=international;
-		this.civil=civil;
-		this.definition=definition;
+		this.institutionIds = institutionIds;
+		this.expertIds = expertIds;
+		this.jigouIds = jigouIds;
+		this.zazhiIds = zazhiIds;
+		this.international = international;
+		this.civil = civil;
+		this.definition = definition;
+		this.jishudians=jishudians;
+	}
+
+	
+	
+	public JishudianDto(long id, long fid, String name, String enname, double score, double scorejigou, double scorezazhi,
+			double scoredb, double scoreexpert, String updatetime, long fieldid, List<Long> articleIds, List<Long> dbIds,
+			List<Long> institutionIds, List<Long> expertIds, List<Long> jigouIds, List<Long> zazhiIds,
+			String international, String civil, String definition) {
+		super();
+		this.id = id;
+		this.fid = fid;
+		this.name = name;
+		this.enname = enname;
+		this.score = score;
+		this.scorejigou = scorejigou;
+		this.scorezazhi = scorezazhi;
+		this.scoredb = scoredb;
+		this.scoreexpert = scoreexpert;
+		this.updatetime = updatetime;
+		this.fieldid = fieldid;
+		this.articleIds = articleIds;
+		this.dbIds = dbIds;
+		this.institutionIds = institutionIds;
+		this.expertIds = expertIds;
+		this.jigouIds = jigouIds;
+		this.zazhiIds = zazhiIds;
+		this.international = international;
+		this.civil = civil;
+		this.definition = definition;
+	}
+
+
+    
+	public int getIsshow() {
+		return isshow;
+	}
+
+
+
+	public void setIsshow(int isshow) {
+		this.isshow = isshow;
+	}
+
+
+
+	public String getImg() {
+		return img;
+	}
+
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
+
+	public List<Jishudian> getJishudians() {
+		return jishudians;
+	}
+
+
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+
+
+	public void setJishudians(List<Jishudian> jishudians) {
+		this.jishudians = jishudians;
+	}
+
+
+
+	public long getFid() {
+		return fid;
+	}
+
+
+
+	public void setFid(long fid) {
+		this.fid = fid;
+	}
+
+
+
+	public String getEnname() {
+		return enname;
+	}
+
+
+
+	public void setEnname(String enname) {
+		this.enname = enname;
+	}
+
+
+
+	public JishudianDto() {
 	}
 
 	public long getId() {
@@ -81,47 +200,69 @@ public class JishudianDto {
 		this.name = name;
 	}
 
-	public int getScore() {
+	
+
+	
+
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+
+
+	public void setScore(double score) {
 		this.score = score;
 	}
 
-	public int getScorejigou() {
+
+
+	public double getScorejigou() {
 		return scorejigou;
 	}
 
-	public void setScorejigou(int scorejigou) {
+
+
+	public void setScorejigou(double scorejigou) {
 		this.scorejigou = scorejigou;
 	}
 
-	public int getScorezazhi() {
+
+
+	public double getScorezazhi() {
 		return scorezazhi;
 	}
 
-	public void setScorezazhi(int scorezazhi) {
+
+
+	public void setScorezazhi(double scorezazhi) {
 		this.scorezazhi = scorezazhi;
 	}
 
-	public int getScoredb() {
+
+
+	public double getScoredb() {
 		return scoredb;
 	}
 
-	public void setScoredb(int scoredb) {
+
+
+	public void setScoredb(double scoredb) {
 		this.scoredb = scoredb;
 	}
 
-	public int getScoreexpert() {
+
+
+	public double getScoreexpert() {
 		return scoreexpert;
 	}
 
-	public void setScoreexpert(int scoreexpert) {
+
+
+	public void setScoreexpert(double scoreexpert) {
 		this.scoreexpert = scoreexpert;
 	}
 
-	
+
 
 	public String getUpdatetime() {
 		return updatetime;

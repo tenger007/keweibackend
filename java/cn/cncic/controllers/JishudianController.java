@@ -50,7 +50,6 @@ import cn.cncic.service.Temp_menuService;
 public class JishudianController{
 	@Autowired
 	private  JishudianService jishudianService;
-	
 	@Autowired
 	private  ExpertService expertService;
 	

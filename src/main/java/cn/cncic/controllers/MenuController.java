@@ -1,17 +1,18 @@
 package cn.cncic.controllers;
 
 
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.cncic.models.Menu;
-import cn.cncic.models.MenuDto;
 import cn.cncic.service.MenuService;
 
 
@@ -23,19 +24,24 @@ public class MenuController {
 		
 	 //根据技术点id获取该技术点对应的菜单信息
 	 @RequestMapping("/menu/jsd/{jsdid}")
-	 public List<MenuDto> getMuneByJsdid(@PathVariable("jsdid") Long jsdid){
+	 public List<Menu> getMuneByJsdid(@PathVariable("jsdid") Long jsdid){
 		 List<Menu> menus=this.menuService.findMenuByJsdid(jsdid);
-		 List<MenuDto> menusDto = new ArrayList<MenuDto>();
-		 for(Menu menu : menus){
-			 List<Menu> childMenus = new ArrayList<Menu>();
-			 if(menu.getFid()==0){
-				 childMenus = this.menuService.findMenuByFid(menu.getId());
-				 MenuDto menuDto = new MenuDto(menu.getId(),menu.getName(),menu.getJsdid(),menu.getFid(),menu.getLevel(),menu.getCode(),menu.getUrl(),menu.getIsend(),menu.getHasson(),childMenus);
-				 menusDto.add(menuDto);
+		Map<Long, Menu> menuMap = new HashMap<Long,Menu>();
+		 List<Menu> roots = new ArrayList<Menu>();
+		 for(Menu p:menus){
+			 menuMap.put(p.getId(), p);
+		 }
+		 for(Menu p:menus){
+			 Menu childMenu = p;
+			 if(p.getFid()==0){
+				 roots.add(p);
+			 }else{
+				Menu parentMenu = menuMap.get(p.getFid());
+				parentMenu.getChildMenu().add(childMenu);
 			 }
 			 
 		 }
-		  return menusDto;
+		  return roots;
 	 }
 	 
 	 //根据父菜单id获取该菜单下的子菜单

@@ -12,7 +12,7 @@ public class FieldService {
 	//private List<String> servers = new ArrayList<String>();
 	
 	public Field byId(long id){
-		return this.fieldRepository.findOne(id);
+		return this.fieldRepository.findById(id);
 	}
 	
 	public Iterable<Field> findAll(){

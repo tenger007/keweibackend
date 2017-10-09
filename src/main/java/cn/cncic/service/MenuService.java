@@ -29,6 +29,13 @@ public class MenuService {
 		return this.menuRepository.findByJsdid(jsdid);
 	}
 	
+	/*
+	 * 通过技术点名称和菜单名称查询菜单
+	 */
+  public List<Menu> findByJsdidAndName(long jsdid,String name){
+	  return this.menuRepository.findByJsdidAndName(jsdid, name);
+  };
+	
 	//通过父菜单id获取子菜单信息
 	public List<Menu> findMenuByFid(long fid){
 		return this.menuRepository.findByFid(fid);

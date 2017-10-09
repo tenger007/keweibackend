@@ -25,10 +25,10 @@ public class Article {
 	/*@ManyToMany(mappedBy="articles")
 	private Set<Jishudian> jishudians = new HashSet<Jishudian>();*/
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)//级联保存、更新、删除、刷新;延迟加载
+	/*@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)//级联保存、更新、删除、刷新;延迟加载
 	 @JoinColumn(name="article_id")//在jishudianArticle表增加一个外键列来实现一对多的单向关联
 //	 private Set<Book> books = new HashSet<Book>();
-	private Set<JishudianArticle> jishudianArticle = new HashSet<JishudianArticle>(); 
+	private Set<JishudianArticle> jishudianArticle = new HashSet<JishudianArticle>(); */
 	
 	@NotNull
 	@Size(max=255)
@@ -147,13 +147,13 @@ public class Article {
 
 	
 
-	public Set<JishudianArticle> getJishudianArticle() {
+	/*public Set<JishudianArticle> getJishudianArticle() {
 		return jishudianArticle;
 	}
 
 	public void setJishudianArticle(Set<JishudianArticle> jishudianArticle) {
 		this.jishudianArticle = jishudianArticle;
-	}
+	}*/
 
 	public String getAuthoraffiliation() {
 		return authoraffiliation;
