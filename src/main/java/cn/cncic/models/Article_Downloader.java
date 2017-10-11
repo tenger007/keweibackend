@@ -16,7 +16,7 @@ public class Article_Downloader {
 	 private String Abstract;
 	 private String content;
 	 private String url;
-	 private String siteName;
+	 private String sitename;
 	 private String source;
 	 private String extras;
 	 private String attachments;
@@ -72,11 +72,12 @@ public class Article_Downloader {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getSiteName() {
-		return siteName;
+	
+	public String getSitename() {
+		return sitename;
 	}
-	public void setSiteName(String siteName) {
-		this.siteName = siteName;
+	public void setSitename(String sitename) {
+		this.sitename = sitename;
 	}
 	public String getSource() {
 		return source;
